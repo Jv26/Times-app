@@ -1,21 +1,32 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+// In App.js in a new project
 
-export default function App() {
+import * as React from 'react';
+import { View, Text } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Home from './Screens/Home/index';
+import Chelsea from './Screens/Chelsea/index';
+import Liverpool from './Screens/Liverpool/index';
+import City from './Screens/City/index';
+import United from './Screens/United/index';
+import Sobre from './Screens/Sobre/index';
+
+
+const Stack = createNativeStackNavigator();
+
+function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Chelsea" component={Chelsea} />
+        <Stack.Screen name="Liverpool" component={Liverpool} />
+        <Stack.Screen name="City" component={City} />
+        <Stack.Screen name="United" component={United} />
+        <Stack.Screen name="Sobre" component={Sobre} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
